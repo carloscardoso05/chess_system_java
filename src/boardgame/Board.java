@@ -38,6 +38,7 @@ public class Board {
     public void placePiece(Piece piece, Position position) {
         if (piece(position) == null) {
             pieces[position.getRow()][position.getColumn()] = piece;
+            piece.position = position;
         }
     }
 
