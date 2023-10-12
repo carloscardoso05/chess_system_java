@@ -45,9 +45,6 @@ public class Board {
     }
 
     public Piece removePiece(Position position) {
-        if (!thereIsAPiece(position)) {
-            throw new BoardException("There position is already empty " + position);
-        }
         Piece piece = piece(position);
         pieces[position.getRow()][position.getColumn()] = null;
         return piece;
