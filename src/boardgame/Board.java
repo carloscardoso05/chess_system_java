@@ -64,11 +64,4 @@ public class Board {
         }
         return piece(position) != null;
     }
-
-    public Position getRelativePosition(Position position, Position offset) {
-        Position relativePosition = new Position(position.getRow(), position.getColumn() + distance);
-        if (positionExists(relativePosition)){
-            return relativePosition;
-        }
-    }
 }
