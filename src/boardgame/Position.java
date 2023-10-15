@@ -30,6 +30,12 @@ public class Position {
         this.column = column;
     }
 
+    public static Position addPositions(Position position, Position offset) {
+        final int newRow = position.getRow() + offset.getRow();
+        final int newColumn = position.getColumn() + offset.getColumn();
+        return new Position(newRow, newColumn);
+    }
+
     @Override
     public String toString() {
         return row + ", " + column;
