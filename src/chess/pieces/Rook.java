@@ -1,6 +1,7 @@
 package chess.pieces;
 
 import boardgame.Board;
+import boardgame.Direction;
 import boardgame.Position;
 import chess.ChessPiece;
 import chess.Color;
@@ -24,13 +25,13 @@ public class Rook extends ChessPiece {
         int columns = board.getColumns();
         boolean[][] mat = new boolean[rows][columns];// up
         // up
-        validateLineMoves(position, new Position(-1, 0), rows, mat);
+        validateLineMoves(position, Direction.UP.getDirection(), rows, mat);
         // down
-        validateLineMoves(position, new Position(1, 0), rows, mat);
+        validateLineMoves(position, Direction.DOWN.getDirection(), rows, mat);
         //left
-        validateLineMoves(position, new Position(0, -1), columns, mat);
+        validateLineMoves(position, Direction.LEFT.getDirection(), columns, mat);
         //right
-        validateLineMoves(position, new Position(0, 1), columns, mat);
+        validateLineMoves(position, Direction.RIGHT.getDirection(), columns, mat);
         return mat;
     }
 }
