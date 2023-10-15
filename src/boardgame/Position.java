@@ -1,5 +1,7 @@
 package boardgame;
 
+import java.util.function.Function;
+
 public class Position {
     private int row;
     private int column;
@@ -30,10 +32,8 @@ public class Position {
         this.column = column;
     }
 
-    public static Position addPositions(Position position, Position offset) {
-        final int newRow = position.getRow() + offset.getRow();
-        final int newColumn = position.getColumn() + offset.getColumn();
-        return new Position(newRow, newColumn);
+    public Position getRelativePosition(Position offset) {
+        return new Position(row + offset.row, column + offset.column);
     }
 
     @Override
