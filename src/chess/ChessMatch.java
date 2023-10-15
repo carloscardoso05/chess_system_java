@@ -6,8 +6,6 @@ import boardgame.Position;
 import chess.pieces.King;
 import chess.pieces.Rook;
 
-import java.lang.annotation.Target;
-
 public class ChessMatch {
     private final Board board;
     private int turn;

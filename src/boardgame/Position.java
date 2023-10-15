@@ -1,7 +1,5 @@
 package boardgame;
 
-import java.util.function.Function;
-
 public class Position {
     private int row;
     private int column;
