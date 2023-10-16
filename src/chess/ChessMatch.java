@@ -6,11 +6,16 @@ import boardgame.Position;
 import chess.pieces.King;
 import chess.pieces.Rook;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ChessMatch {
     private final Board board;
     private int turn;
     private Color currentPlayer;
     private boolean check;
+    private final List<ChessPiece> capturedPieces = new ArrayList<>();
+    private final List<ChessPiece> piecesOnBoard = new ArrayList<>();
     private boolean checkMate;
     private ChessPiece enPassantVulnerable;
     private ChessPiece promoted;
@@ -50,11 +55,16 @@ public class ChessMatch {
         ChessPosition chessPosition = new ChessPosition(column, row);
         Position position = chessPosition.toPosition();
         board.placePiece(piece, position);
+        piecesOnBoard.add(piece);
     }
 
     private Piece makeMove(Position source, Position target) {
         Piece piece = board.removePiece(source);
         Piece capturedPiece = board.removePiece(target);
+        if (capturedPiece != null) {
+            piecesOnBoard.remove((ChessPiece) capturedPiece);
+            capturedPieces.add((ChessPiece) capturedPiece);
+        }
         board.placePiece(piece, target);
         return capturedPiece;
     }
@@ -106,5 +116,9 @@ public class ChessMatch {
 
     public Color getCurrentPlayer() {
         return currentPlayer;
+    }
+
+    public List<ChessPiece> getCapturedPieces() {
+        return capturedPieces;
     }
 }
