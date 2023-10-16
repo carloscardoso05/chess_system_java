@@ -15,12 +15,11 @@ public class Main {
         while (true) {
             try {
                 UI.clearScreen();
-                UI.printBoard(match.getPieces());
+                UI.printMatch(match);
                 System.out.print("Source: ");
                 ChessPosition source = UI.readChessPosition(sc);
-                boolean[][] possibleMoves = match.possibleMoves(source);
                 UI.clearScreen();
-                UI.printBoard(match.getPieces(), possibleMoves);
+                UI.printMatch(match, source);
                 System.out.print("Target: ");
                 ChessPosition target = UI.readChessPosition(sc);
                 ChessPiece piece = match.performChessMove(source, target);

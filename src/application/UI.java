@@ -1,6 +1,8 @@
 package application;
 
 import boardgame.Piece;
+import boardgame.Position;
+import chess.ChessMatch;
 import chess.ChessPiece;
 import chess.ChessPosition;
 import chess.Color;
@@ -44,6 +46,16 @@ public class UI {
         System.out.print("\033[H\033[2J");
         System.out.flush();
     }
+    public static void printMatch(ChessMatch chessMatch) {
+        printBoard(chessMatch.getPieces());
+        System.out.println("Turn: " + chessMatch.getTurn());
+        System.out.println("Waiting Player: " + chessMatch.getCurrentPlayer());
+    }
+    public static void printMatch(ChessMatch chessMatch, ChessPosition source) {
+        printBoard(chessMatch.getPieces(), chessMatch.possibleMoves(source));
+        System.out.println("Turn: " + chessMatch.getTurn());
+        System.out.println("Waiting Player: " + chessMatch.getCurrentPlayer());
+    }
 
     public static void printBoard(ChessPiece[][] pieces) {
         for (int row = 0; row < pieces.length; row++) {
@@ -66,6 +78,7 @@ public class UI {
         }
         System.out.println("  a b c d e f g h");
     }
+
 
     private static void printPiece(ChessPiece piece, boolean possibleTarget) {
         if (possibleTarget) System.out.print(ANSI_BLUE_BACKGROUND);
