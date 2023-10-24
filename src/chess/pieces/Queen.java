@@ -5,14 +5,15 @@ import boardgame.Direction;
 import chess.ChessPiece;
 import chess.Color;
 
-public class King extends ChessPiece {
-    public King(Board board, Color color) {
+public class Queen extends ChessPiece {
+
+    public Queen(Board board, Color color) {
         super(board, color);
     }
 
     @Override
     public String toString() {
-        return "K";
+        return "Q";
     }
 
     @Override
@@ -22,7 +23,7 @@ public class King extends ChessPiece {
         int columns = board.getColumns();
         boolean[][] mat = new boolean[rows][columns];
         for (Direction direction : Direction.values()) {
-            validateLineMoves(position, direction.getDirection(), 1, mat);
+            validateLineMoves(position, direction.getDirection(), 7, mat);
         }
         return mat;
     }

@@ -23,7 +23,7 @@ public class Rook extends ChessPiece {
         Board board = getBoard();
         int rows = board.getRows();
         int columns = board.getColumns();
-        boolean[][] mat = new boolean[rows][columns];// up
+        boolean[][] mat = new boolean[rows][columns];
         // up
         validateLineMoves(position, Direction.UP.getDirection(), rows, mat);
         // down
