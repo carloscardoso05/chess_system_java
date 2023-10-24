@@ -1,5 +1,7 @@
 package boardgame;
 
+import chess.ChessPosition;
+
 public class Board {
     private final int rows;
     private final int columns;
